@@ -1,4 +1,5 @@
-import { coreFunction } from '@dolphub/common';
-for (let i = 0; i < 9; i++) {
-    coreFunction();
+import { coreFunction, coreAdder, anotherCoreFunction } from '@dolphub/common';
+coreFunction();
+for (let i = 0; i < 10; i++) {
+    console.log(coreAdder(i, i * i + 1), anotherCoreFunction());
 }

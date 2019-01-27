@@ -2,11 +2,11 @@
     "private": true,
     "scripts": {
         "bootstrap": "lerna bootstrap",
-        "build": "tsc -b packages/common packages/server",
-        "test": "node packages/server/lib/index.js",
-        "clean": "rimraf packages/**/lib",
+        "build": "lerna run build",
+        "clean": "rimraf packages/**/dist",
+        "diff": "lerna diff",
         "newversion": "lerna version --conventional-commits --yes",
-        "diff": "lerna diff "
+        "runserver": "node packages/server/dist/index.js"
     },
     "workspaces": [
         "packages/*"
