@@ -6,7 +6,7 @@
         "test": "node packages/server/lib/index.js",
         "clean": "rimraf packages/**/lib",
         "newversion": "lerna version --conventional-commits --yes",
-        "diff": "lerna diff"
+        "diff": "lerna diff "
     },
     "workspaces": [
         "packages/*"
@@ -16,5 +16,5 @@
         "rimraf": "^2.6.2",
         "lerna": "^3.10.7"
     },
-    "name": "lerna-test"
+    "name": "workspace-lerna-example"
 }
