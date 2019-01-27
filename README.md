@@ -10,5 +10,6 @@
 | style    |  none  |
 | refactor | patch  |
 | perf     | patch  |
+| build    |  none  |
 | ci       | patch  |
 | chore    | patch  |
