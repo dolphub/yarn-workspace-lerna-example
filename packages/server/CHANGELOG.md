@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/dolphub/yarn-workspace-lerna-example/compare/v1.1.6...v1.2.0) (2019-01-27)
+
+
+### Features
+
+* **all:** New function, structure change ([5b76186](https://github.com/dolphub/yarn-workspace-lerna-example/commit/5b76186))
+
+
+
+
+
 ## [1.1.6](https://github.com/dolphub/yarn-workspace-lerna-example/compare/v1.1.5...v1.1.6) (2019-01-27)
 
 
