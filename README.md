@@ -1,1 +1,13 @@
-# lerna-test
+# workspace-lerna-example
+
+## Lerna SemVer
+
+| Commit   | SemVer |
+| -------- | :----: |
+| feat     | minor  |
+| fix      | patch  |
+| docs     | patch  |
+| style    |  none  |
+| refactor | patch  |
+| perf     | patch  |
+| chore    | patch  |
