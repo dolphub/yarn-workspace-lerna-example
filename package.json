@@ -1,0 +1,18 @@
+{
+    "private": true,
+    "scripts": {
+        "bootstrap": "lerna bootstrap",
+        "build": "tsc -b packages/common packages/server",
+        "test": "node packages/server/lib/index.js",
+        "clean": "rimraf packages/**/lib"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "@types/node": "^8.0.28",
+        "rimraf": "^2.6.2",
+        "lerna": "^3.10.7"
+    },
+    "name": "lerna-test"
+}

@@ -1,0 +1,26 @@
+{
+    "name": "@dolphub/server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "lib/index.js",
+    "scripts": {
+        "test": "ava"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@dolphub/common": "^1.0.0",
+        "@types/node": "^8.0.28",
+        "minimist": "^1.2.0"
+    },
+    "devDependencies": {
+        "ava": "^0.22.0",
+        "typescript": "~3.0.0"
+    },
+    "ava": {
+        "files": [
+            "lib/**/*.spec.js"
+        ]
+    }
+}
