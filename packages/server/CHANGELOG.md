@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/dolphub/yarn-workspace-lerna-example/compare/v1.1.5...v1.1.6) (2019-01-27)
+
+
+### Bug Fixes
+
+* **server:** versions ([df4e62e](https://github.com/dolphub/yarn-workspace-lerna-example/commit/df4e62e))
+
+
+
+
+
 ## [1.1.5](https://github.com/dolphub/yarn-workspace-lerna-example/compare/v1.1.4...v1.1.5) (2019-01-27)
 
 **Note:** Version bump only for package @dolphub/server
