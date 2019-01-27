@@ -1,6 +1,6 @@
 {
     "name": "@dolphub/server",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "",
     "main": "lib/index.js",
     "scripts": {
@@ -10,7 +10,7 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@dolphub/common": "^1.0.0",
+        "@dolphub/common": "^1.1.0",
         "@types/node": "^8.0.28",
         "minimist": "^1.2.0"
     },
