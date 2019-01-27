@@ -6,7 +6,7 @@
 | -------- | :----: |
 | feat     | minor  |
 | fix      | patch  |
-| docs     | patch  |
+| docs     |  none  |
 | style    |  none  |
 | refactor | patch  |
 | perf     | patch  |
