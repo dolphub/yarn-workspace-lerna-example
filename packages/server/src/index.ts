@@ -1,2 +1,4 @@
 import { coreFunction } from '@dolphub/common';
-coreFunction();
+for (let i = 0; i < 5; i++) {
+    coreFunction();
+}
