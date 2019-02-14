@@ -13,3 +13,6 @@
 | build    |  none  |
 | ci       | patch  |
 | chore    | patch  |
+
+### Note
+- Breaking changes causes Major SemVer bump. 
