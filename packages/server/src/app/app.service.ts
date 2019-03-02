@@ -4,9 +4,7 @@ import * as os from 'os';
 
 @Injectable()
 export class AppService {
-    constructor(
-        private readonly configService: ConfigService, // private readonly sqsConsumer: SqsconsumerService,
-    ) {}
+    constructor(private readonly configService: ConfigService) {}
 
     root() {
         return {

@@ -3,8 +3,10 @@
     "scripts": {
         "bootstrap": "lerna bootstrap",
         "build": "lerna run build",
+        "build:watch": "lerna run build:watch",
         "clean": "rimraf packages/**/dist",
         "diff": "lerna diff",
+        "start:dev": "lerna run --parallel start:dev",
         "newversion": "lerna version --conventional-commits --yes",
         "runserver": "node packages/server/dist/index.js"
     },

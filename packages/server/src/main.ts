@@ -5,11 +5,13 @@ import { ValidationPipe } from '@nestjs/common';
 import { join } from 'path';
 import { ConfigService } from 'nestjs-config';
 import { AppService } from './app/app.service';
+import { NestAppType } from '@dolphub/common';
 
 async function bootstrap() {
     const packageJson = require(join(__dirname, '../package.json'));
     const app = await NestFactory.create(AppModule);
 
+    testServiceExtration(app);
     const configService: ConfigService = app.get(ConfigService);
     const port = configService.get('api.port');
 
@@ -31,7 +33,7 @@ async function bootstrap() {
 }
 bootstrap();
 
-function testExternalServiceExtraction(app: NetsAppType) {
+function testServiceExtration(app: NestAppType) {
     const appService: AppService = app.get(AppService);
     console.log(appService.root());
 }
