@@ -13,6 +13,9 @@
         "noLib": false,
         "target": "es6",
 
+        "module": "commonjs",
+        "moduleResolution": "node",
+
         "lib": ["es7"],
         "noUnusedLocals": true,
         "noUnusedParameters": true,
