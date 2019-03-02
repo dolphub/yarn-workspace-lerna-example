@@ -2,6 +2,7 @@
     "compilerOptions": {
         "sourceMap": true,
         "removeComments": true,
+        "declaration": true,
 
         "strict": true,
         "noImplicitAny": true,
@@ -9,10 +10,21 @@
         "strictFunctionTypes": true,
         "noImplicitThis": true,
         "alwaysStrict": true,
+        "noLib": false,
+        "target": "es6",
 
+        "lib": ["es7"],
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noImplicitReturns": true,
-        "noFallthroughCasesInSwitch": true
-    }
+        "noFallthroughCasesInSwitch": true,
+        "allowSyntheticDefaultImports": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "baseUrl": "./src",
+        "paths": {
+            "@dolphub/*": ["./*/src"]
+        }
+    },
+    "exclude": ["node_modules"]
 }
