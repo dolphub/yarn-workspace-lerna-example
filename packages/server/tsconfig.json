@@ -1,11 +1,10 @@
 {
-    "extends": "../../tsconfig.json",
+    "extends": "./../../tsconfig.json",
     "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "rootDir": "src",
-        "outDir": "dist",
-        "declaration": true
-    }
+        "outDir": "./lib",
+        "rootDir": "./src"
+    },
+    "include": ["./src/**/*"],
+    "references": [{ "path": "../common" }],
+    "types": ["@dolphub/common"]
 }
