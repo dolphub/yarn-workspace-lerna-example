@@ -7,7 +7,7 @@
         "clean": "rimraf packages/**/dist",
         "diff": "lerna diff",
         "start:dev": "lerna run --parallel start:dev",
-        "newversion": "lerna version --conventional-commits --yes",
+        "newversion": "lerna version --conventional-commits",
         "runserver": "node packages/server/dist/index.js"
     },
     "workspaces": [
