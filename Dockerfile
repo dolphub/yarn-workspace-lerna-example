@@ -24,8 +24,6 @@ RUN npm i -g yarn
 RUN yarn install
 RUN yarn build
 
-RUN ls -lart ./packages/server/lib/
-
 ###############
 # Prod Build Stage
 ###############
