@@ -29,8 +29,7 @@
         "tslint-config-prettier": "1.18.0"
     },
     "scripts": {
-        "build": "tsc",
-        "build:watch": "tsc --watch",
+        "build": "rimraf lib && tsc",
         "start:dev": "tsc --watch"
     }
 }

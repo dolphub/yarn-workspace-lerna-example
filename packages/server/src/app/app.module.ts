@@ -12,7 +12,7 @@ MorganMiddleware.configure(
 
 @Module({
     imports: [
-        ConfigModule.resolveSrcPath(__dirname).load('config/**/*.{ts,js}'),
+        ConfigModule.resolveSrcPath(__dirname).load('config/**/!(*.d).{ts,js}'),
     ],
     controllers: [AppController],
     providers: [AppService, ExampleService],

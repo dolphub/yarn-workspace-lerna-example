@@ -1,0 +1,11 @@
+*
+!./package.json
+!./packages/server/package.json
+!./packages/common/package.json
+!./packages/server/src
+!./packages/common/src
+!./tsconfig.json
+!./lerna.json
+!./packages/common/tsconfig.json
+!./packages/server/tsconfig.json
+
