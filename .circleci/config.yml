@@ -1,6 +1,12 @@
 # https://github.com/CircleCI-Public/aws-ecr-orb
+# ENV VARS
+# AWS_ACCESS_KEY_ID	
+# AWS_SECRET_ACCESS_KEY
+# AWS_ECR_ACCOUNT_URL
+# AWS_ECR_REPO_NAME
+# AWS_REGION
 orbs:
-  aws-ecr: circleci/aws-ecr@3.0.0
+  aws-ecr: circleci/aws-ecr@1.0.0
 version: 2.1
 workflows:
   build_and_push_image:
