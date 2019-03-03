@@ -12,5 +12,10 @@ workflows:
   build_and_push_image:
     jobs:
       - aws-ecr/build_and_push_image:
-          repo: ${AWS_ECR_REPO_NAME}
-          tag: testing-alpha.0
+        filters:
+          branches:
+            ignore: /.*/
+          tags:
+            only: /^v[0-9]+(\.[0-9]+)*$/
+        repo: ${AWS_ECR_REPO_NAME}
+        tag: testing-alpha.1
