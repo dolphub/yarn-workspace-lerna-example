@@ -6,7 +6,7 @@
         "build:watch": "lerna run build:watch",
         "clean": "rimraf packages/**/dist",
         "diff": "lerna diff",
-        "start:dev": "lerna run --parallel start:dev",
+        "start:dev": "lerna run build && lerna run --parallel start:dev",
         "newversion": "lerna version --conventional-commits",
         "runserver": "node packages/server/lib/main.js"
     },

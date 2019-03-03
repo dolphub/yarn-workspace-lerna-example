@@ -1,0 +1,10 @@
+# https://github.com/CircleCI-Public/aws-ecr-orb
+orbs:
+  aws-ecr: circleci/aws-ecr@3.0.0
+version: 2.1
+workflows:
+  build_and_push_image:
+    jobs:
+      - aws-ecr/build_and_push_image:
+          repo: ${AWS_ECR_REPO_NAME}
+          tag: testing-alpha.0

@@ -27,7 +27,7 @@ RUN yarn build
 RUN ls -lart ./packages/server/lib/
 
 ###############
-# Release Stage
+# Prod Build Stage
 ###############
 
 FROM base as build-production
@@ -36,6 +36,10 @@ COPY --from=build /usr/src/app/packages/server/lib/ ./packages/server/lib/
 COPY --from=build /usr/src/app/packages/common/lib/ ./packages/common/lib/
 
 RUN yarn install --production
+
+###############
+# Release Stage
+###############
 
 FROM base as release
 
