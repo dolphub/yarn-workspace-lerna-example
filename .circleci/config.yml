@@ -13,15 +13,28 @@ version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@3.0.0
 
+jobs:
+  get:
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - run:
+        command: |
+          TAG_VERSION=$(git describe --abbrev=0)
+          $TAG_VERSION
+        name: Get latest tag from branch
+
 workflows:
   version: 2
   tagged-builds:
     jobs:
+      - get_tag
       - aws-ecr/build_and_push_image:
           repo: ${AWS_ECR_REPO_NAME}
-          tag: testing-alpha.1
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
+          tag: ${TAG_VERSION}
+          # filters:
+          #   branches:
+          #     ignore: /.*/
+          #   tags:
+          #     only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
