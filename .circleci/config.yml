@@ -18,25 +18,22 @@ executors:
     docker:
       - image: buildpack-deps:jessie
 
-jobs:
-  get_tag:
-    executor: build-executor
-    steps:
-      - checkout
-      - run:
-          name: Get latest tag from branch
-          command: TAG_VERSION=$(git describe --abbrev=0)          
+# jobs:
+#   get_tag:
+#     executor: build-executor
+#     steps:
+#       - checkout
+#       - run:
+#           name: Get latest tag from branch
+#           command: TAG_VERSION=$(git describe --abbrev=0)
 
 workflows:
   version: 2
   tagged-builds:
     jobs:
-      - get_tag
       - aws-ecr/build_and_push_image:
           repo: ${AWS_ECR_REPO_NAME}
-          tag: ${TAG_VERSION}
-          requires:
-            - get_tag
+          tag: ${CIRCLE_TAG}
           # filters:
           #   branches:
           #     ignore: /.*/
