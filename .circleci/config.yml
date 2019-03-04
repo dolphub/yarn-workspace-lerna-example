@@ -18,11 +18,11 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: TAG_VERSION=$(git describe --abbrev=0)
-        # command: |
-        #   TAG_VERSION=$(git describe --abbrev=0)
-        #   $TAG_VERSION
-        # name: Get latest tag from branch
+      - run: 
+        command: |
+          TAG_VERSION=$(git describe --abbrev=0)
+          $TAG_VERSION
+        name: Get latest tag from branch
 
 workflows:
   version: 2
