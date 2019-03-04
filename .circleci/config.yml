@@ -8,18 +8,34 @@ executors:
     docker:
       - image: buildpack-deps:jessie
 
+jobs:
+  approval:
+    executor: build-executor
+    steps:
+      - checkout
+      - run:
+          name: Get latest tag from branch
+          command: TAG_VERSION=$(git describe --abbrev=0)
+
 workflows:
   version: 2
   tagged-builds:
     jobs:
+      - approved-build:
+          type: approval
       - aws-ecr/build_and_push_image:
           repo: ${AWS_ECR_REPO_NAME}
           tag: ${CIRCLE_TAG}
+          requires:
+            - approved-build
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
+
+          
+
 
 
 # jobs:
@@ -30,13 +46,3 @@ workflows:
 #       - run:
 #           name: Get latest tag from branch
 #           command: TAG_VERSION=$(git describe --abbrev=0)
-# https://github.com/CircleCI-Public/aws-ecr-orb
-# https://circleci.com/docs/2.0/workflows/#git-tag-job-execution
-# ENV VARS
-# AWS_ACCESS_KEY_ID
-# AWS_SECRET_ACCESS_KEY
-# AWS_ECR_ACCOUNT_URL
-# AWS_ECR_REPO_NAME
-# AWS_REGION_NAME
-# semver regex \bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b
-# ###### Matches: v1.2.2-rc.2, v1.2.2, etc.
