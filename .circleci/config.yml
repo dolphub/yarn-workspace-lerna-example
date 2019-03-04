@@ -14,18 +14,22 @@ orbs:
 version: 2.1
 
 jobs:
-  - aws-ecr/build_and_push_image:
-      repo: ${AWS_ECR_REPO_NAME}
-      tag: testing-alpha.1
+  build-image:
+    docker:
+      - image: "circleci/node"
+    steps:
+      - aws-ecr/build_and_push_image:
+          repo: ${AWS_ECR_REPO_NAME}
+          tag: testing-alpha.1
 
 
 workflows:
   version: 2
   tagged-builds:
     jobs:
-      - aws-ecr/build_and_push_image:
-        filters:
-          branches:
-            ignore: /.*/
-          tags:
-            only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
+      - build-image:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
