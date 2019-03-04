@@ -7,8 +7,11 @@
         "clean": "rimraf packages/**/dist",
         "diff": "lerna diff",
         "start:dev": "lerna run build && lerna run --parallel start:dev",
-        "newversion": "lerna version --conventional-commits",
-        "runserver": "node packages/server/lib/main.js"
+        "new:release": "lerna version --conventional-commits",
+        "new:rc-patch": "lerna version prepatch --preid rc --conventional-commits",
+        "new:rc-minor": "lerna version preminor --preid rc --conventional-commits",
+        "new:rc-major": "lerna version premajor --preid rc --conventional-commits",
+        "new:rc-prerelease": "lerna version prerelease --preid rc --conventional-commits"
     },
     "workspaces": [
         "packages/*"
