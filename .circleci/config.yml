@@ -8,10 +8,11 @@
 # AWS_REGION_NAME
 # semver regex \bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b
 # ###### Matches: v1.2.2-rc.2, v1.2.2, etc.
+version: 2.1
 
 orbs:
   aws-ecr: circleci/aws-ecr@3.0.0
-version: 2.1
+
 
 jobs:
   build-image:
