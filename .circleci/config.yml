@@ -16,7 +16,7 @@ orbs:
 jobs:
   extracttag:
     docker:
-      - image: circleci/node
+      - image: circleci/node:latest
     steps:
       - checkout
       - run:
@@ -31,6 +31,8 @@ workflows:
     jobs:
       - extracttag
       - aws-ecr/build_and_push_image:
+          requires:
+            - extracttag
           repo: ${AWS_ECR_REPO_NAME}
           tag: ${TAG_VERSION}
           # filters:
