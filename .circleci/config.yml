@@ -16,14 +16,14 @@ version: 2.1
 jobs:
   get_tag:
     docker:
-      image: circleci/node:latest
+      - image: circleci/node:latest
     steps:
       - checkout
-      - run: 
-        command: |
-          TAG_VERSION=$(git describe --abbrev=0)
-          $TAG_VERSION
-        name: Get latest tag from branch
+      - run:
+          command: |
+            TAG_VERSION=$(git describe --abbrev=0)
+            $TAG_VERSION
+          name: Get latest tag from branch
   # print_tag:
   #   docker:
   #     image: circleci/node:latest
