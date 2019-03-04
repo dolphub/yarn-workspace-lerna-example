@@ -13,29 +13,29 @@ version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@3.0.0
 
-jobs:
-  get_tag:
-    machine: true
-    steps:
-      - checkout
-      - run: TAG_VERSION=$(git describe --abbrev=0)
-        # command: |
-        #   TAG_VERSION=$(git describe --abbrev=0)
-        #   $TAG_VERSION
-        # name: Get latest tag from branch
+executors:
+  build-executor:
+    docker:
+      - image: buildpack-deps:jessie
+
+# jobs:
+#   get_tag:
+#     executor: build-executor
+#     steps:
+#       - checkout
+#       - run:
+#           name: Get latest tag from branch
+#           command: TAG_VERSION=$(git describe --abbrev=0)
 
 workflows:
   version: 2
   tagged-builds:
     jobs:
-      - get_tag
       - aws-ecr/build_and_push_image:
           repo: ${AWS_ECR_REPO_NAME}
-          tag: ${TAG_VERSION}
-          requires:
-            - get_tag
-          # filters:
-          #   branches:
-          #     ignore: /.*/
-          #   tags:
-          #     only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
+          tag: ${CIRCLE_TAG}
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
