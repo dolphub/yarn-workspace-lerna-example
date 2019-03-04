@@ -12,17 +12,13 @@ orbs:
   aws-ecr: circleci/aws-ecr@3.0.0
 version: 2.1
 
-jobs:
-  build_push:
-    - aws-ecr/build_and_push_image:
-        repo: ${AWS_ECR_REPO_NAME}  
-        tag: v.0.1.0-alpha.1
-
 workflows:
   version: 2
   tagged-builds:
     jobs:
-      build_push:
+      - aws-ecr/build_and_push_image:
+        repo: ${AWS_ECR_REPO_NAME}  
+        tag: v0.1.0-alpha.1
         filters:
           branches:
             ignore: /.*/
