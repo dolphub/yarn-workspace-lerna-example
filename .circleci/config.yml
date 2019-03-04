@@ -13,29 +13,33 @@ version: 2.1
 # orbs:
 #   aws-ecr: circleci/aws-ecr@3.0.0
 
+executors:
+  build-executor:
+    docker:
+      - image: buildpack-deps:jessie
+
 jobs:
   get_tag:
-    docker:
-      - image: circleci/node:latest
+    executor: build-executor
     steps:
       - checkout
       - run:
-          command: |
-            TAG_VERSION=$(git describe --abbrev=0)
-            $TAG_VERSION
           name: Get latest tag from branch
-  # print_tag:
-  #   docker:
-  #     image: circleci/node:latest
-  #   steps:
-  #     - checkout
-  #     - run: echo $TAG_VERSION
+          command: TAG_VERSION=$(git describe --abbrev=0)          
+  print_tag:
+    executor: build-executor
+    steps:
+      - checkout
+      - run: echo $TAG_VERSION
 
 workflows:
   version: 2
   tagged-builds:
     jobs:
       - get_tag
+      - print_tag:
+          requires:
+            - get_tag
       # - print_tag:
       #     requires:
       #       - get_tag
