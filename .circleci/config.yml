@@ -1,21 +1,25 @@
 # https://github.com/CircleCI-Public/aws-ecr-orb
+# https://circleci.com/docs/2.0/workflows/#git-tag-job-execution
 # ENV VARS
 # AWS_ACCESS_KEY_ID	
 # AWS_SECRET_ACCESS_KEY
 # AWS_ECR_ACCOUNT_URL
 # AWS_ECR_REPO_NAME
 # AWS_REGION_NAME
+# semver regex \bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b
+# ###### Matches: v1.2.2-rc.2, v1.2.2, etc.
 orbs:
   aws-ecr: circleci/aws-ecr@3.0.0
 version: 2.1
 workflows:
-  build_and_push_image:
+  version: 2
+  tagged-builds:
     jobs:
       - aws-ecr/build_and_push_image:
         filters:
           branches:
             ignore: /.*/
           tags:
-            only: /^v[0-9]+(\.[0-9]+)*$/
+            only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
         repo: ${AWS_ECR_REPO_NAME}
-        tag: testing-alpha.1
+        tag: v.0.1.0-alpha.1
