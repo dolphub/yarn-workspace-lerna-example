@@ -33,7 +33,7 @@ workflows:
           repo: ${AWS_ECR_REPO_NAME}
           tag: ${TAG_VERSION}
           requires:
-            - extracttag
+            - get_tag
           # filters:
           #   branches:
           #     ignore: /.*/
