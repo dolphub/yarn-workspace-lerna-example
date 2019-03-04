@@ -11,16 +11,10 @@
 orbs:
   aws-ecr: circleci/aws-ecr@3.0.0
 version: 2.1
-
 workflows:
   version: 2
   tagged-builds:
     jobs:
       - aws-ecr/build_and_push_image:
-        repo: ${AWS_ECR_REPO_NAME}  
-        tag: v0.1.0-alpha.1
-        filters:
-          branches:
-            ignore: /.*/
-          tags:
-            only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
+          repo: ${AWS_ECR_REPO_NAME}
+          tag: testing-alpha.1
