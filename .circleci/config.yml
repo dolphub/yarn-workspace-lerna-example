@@ -13,20 +13,13 @@ version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@3.0.0
 
-jobs:
-  build-image:
-    docker:
-      - image: "circleci/node:9.6.1"
-    steps:
-      - aws-ecr/build_and_push_image:
-          repo: ${AWS_ECR_REPO_NAME}
-          tag: testing-alpha.1
-
 workflows:
   version: 2
   tagged-builds:
     jobs:
-      - build-image:
+      - aws-ecr/build_and_push_image:
+          repo: ${AWS_ECR_REPO_NAME}
+          tag: testing-alpha.1
           filters:
             branches:
               ignore: /.*/
