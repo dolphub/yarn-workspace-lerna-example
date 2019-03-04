@@ -34,8 +34,8 @@ workflows:
       - aws-ecr/build_and_push_image:
           repo: ${AWS_ECR_REPO_NAME}
           tag: ${CIRCLE_TAG}
-          # filters:
-          #   branches:
-          #     ignore: /.*/
-          #   tags:
-          #     only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /\bv?(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[\da-z-]+(?:\.[\da-z-]+)*)?(?:\+[\da-z-]+(?:\.[\da-z-]+)*)?\b/
