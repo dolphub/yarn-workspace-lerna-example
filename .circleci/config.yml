@@ -30,7 +30,7 @@ jobs:
     executor: build-executor
     steps:
       - checkout
-      - run: echo $TAG_VERSION
+      - run: echo ${TAG_VERSION}
 
 workflows:
   version: 2
