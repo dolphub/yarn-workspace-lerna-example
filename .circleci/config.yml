@@ -1,7 +1,7 @@
 # https://github.com/CircleCI-Public/aws-ecr-orb
 # https://circleci.com/docs/2.0/workflows/#git-tag-job-execution
 # ENV VARS
-# AWS_ACCESS_KEY_ID	
+# AWS_ACCESS_KEY_ID
 # AWS_SECRET_ACCESS_KEY
 # AWS_ECR_ACCOUNT_URL
 # AWS_ECR_REPO_NAME
@@ -13,22 +13,20 @@ version: 2.1
 orbs:
   aws-ecr: circleci/aws-ecr@3.0.0
 
-
-# jobs:
-#   build-image:
-#     docker:
-#       - image: "circleci/node"
-#     steps:
-
-
+jobs:
+  build-image:
+    docker:
+      - image: "circleci/node:9.6.1"
+    steps:
+      - aws-ecr/build_and_push_image:
+          repo: ${AWS_ECR_REPO_NAME}
+          tag: testing-alpha.1
 
 workflows:
   version: 2
   tagged-builds:
     jobs:
-      - aws-ecr/build_and_push_image:
-          repo: ${AWS_ECR_REPO_NAME}
-          tag: testing-alpha.1
+      - build-image:
           filters:
             branches:
               ignore: /.*/
