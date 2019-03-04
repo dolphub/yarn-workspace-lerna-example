@@ -10,8 +10,8 @@
 # ###### Matches: v1.2.2-rc.2, v1.2.2, etc.
 version: 2.1
 
-orbs:
-  aws-ecr: circleci/aws-ecr@3.0.0
+# orbs:
+#   aws-ecr: circleci/aws-ecr@3.0.0
 
 jobs:
   get_tag:
@@ -24,21 +24,21 @@ jobs:
           TAG_VERSION=$(git describe --abbrev=0)
           $TAG_VERSION
         name: Get latest tag from branch
-  print_tag:
-    docker:
-      image: circleci/node:latest
-    steps:
-      - checkout
-      - run: echo $TAG_VERSION
+  # print_tag:
+  #   docker:
+  #     image: circleci/node:latest
+  #   steps:
+  #     - checkout
+  #     - run: echo $TAG_VERSION
 
 workflows:
   version: 2
   tagged-builds:
     jobs:
       - get_tag
-      - print_tag:
-          requires:
-            - get_tag
+      # - print_tag:
+      #     requires:
+      #       - get_tag
       # - aws-ecr/build_and_push_image:
       #     repo: ${AWS_ECR_REPO_NAME}
       #     tag: ${TAG_VERSION}
