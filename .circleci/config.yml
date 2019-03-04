@@ -10,8 +10,8 @@
 # ###### Matches: v1.2.2-rc.2, v1.2.2, etc.
 version: 2.1
 
-# orbs:
-#   aws-ecr: circleci/aws-ecr@3.0.0
+orbs:
+  aws-ecr: circleci/aws-ecr@3.0.0
 
 executors:
   build-executor:
