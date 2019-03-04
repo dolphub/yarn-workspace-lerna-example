@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.8-rc.2](https://github.com/dolphub/yarn-workspace-lerna-example/compare/v1.2.8-rc.1...v1.2.8-rc.2) (2019-03-04)
+
+
+### Features
+
+* **server:** adding new approval to ci ([17b5531](https://github.com/dolphub/yarn-workspace-lerna-example/commit/17b5531))
+
+
+
+
+
 ## [1.2.8-rc.1](https://github.com/dolphub/yarn-workspace-lerna-example/compare/v1.2.8-rc.0...v1.2.8-rc.1) (2019-03-04)
 
 **Note:** Version bump only for package workspace-lerna-example
