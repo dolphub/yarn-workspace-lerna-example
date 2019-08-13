@@ -1,19 +1,12 @@
 {
-    "compilerOptions": {
-        "allowSyntheticDefaultImports": true,
-        "baseUrl": "./packages",
-        "declaration": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "module": "commonjs",
-        "noImplicitAny": false,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noLib": false,
-        "preserveSymlinks": true,
-        "removeComments": true,
-        "sourceMap": false,
-        "target": "es6"
-    },
-    "exclude": ["node_modules", "**/*.spec.ts"]
+  "extends": "./tsconfig.build.json",
+
+  "compilerOptions": {
+    "jsx": "react",
+    "esModuleInterop": true,
+    "baseUrl": "./packages",
+    "paths": {
+      "@dolphub/*": ["*/src"]
+    }
+  }
 }

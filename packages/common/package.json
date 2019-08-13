@@ -1,35 +1,18 @@
 {
-    "name": "@dolphub/common",
-    "version": "1.2.8",
-    "main": "lib/index.js",
-    "typings": "lib/index.d.ts",
-    "license": "MIT",
-    "dependencies": {
-        "@nestjs/common": "^5.7.3",
-        "@nestjs/core": "^5.7.3",
-        "@nestjs/swagger": "^2.5.1",
-        "class-transformer": "^0.2.0",
-        "class-validator": "^0.9.1",
-        "dotenv": "6.2.0",
-        "reflect-metadata": "0.1.13",
-        "rxjs": "6.4.0",
-        "typescript": "^3.3.3333"
-    },
-    "devDependencies": {
-        "@types/dotenv": "6.1.0",
-        "@types/express": "4.16.1",
-        "@types/node": "10.12.21",
-        "jest": "24.1.0",
-        "prettier": "1.16.4",
-        "rimraf": "2.6.3",
-        "ts-jest": "23.10.5",
-        "ts-node": "8.0.2",
-        "tsconfig-paths": "3.7.0",
-        "tslint": "5.12.1",
-        "tslint-config-prettier": "1.18.0"
-    },
-    "scripts": {
-        "build": "rimraf lib && tsc",
-        "start:dev": "tsc --watch"
-    }
+  "name": "@dolphub/common",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "start:dev": "tsc --watch",
+    "start": "tsc --watch"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "tslint": "^5.18.0",
+    "typeorm": "^0.2.18",
+    "typescript": "^3.5.3"
+  }
 }
